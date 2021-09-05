@@ -1,28 +1,16 @@
 # Documentation: https://docs.brew.sh/Formula-Cookbook
 #                https://rubydoc.brew.sh/Formula
 # PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
+HOMEBREW_JMERGE_VERSION='1.0.0'
 class JmergeCli < Formula
-  version "v0.1.1"
+  version "#{HOMEBREW_JMERGE_VERSION}"
   desc "jmerge-cli can merge multiple json files"
   homepage "https://github.com/akubi0w1/jmerge"
-  url "https://github.com/akubi0w1/jmerge/archive/refs/tags/v0.1.1.tar.gz"
+  url "https://github.com/akubi0w1/jmerge/releases/download/v#{HOMEBREW_JMERGE_VERSION}/jmerge-cli_#{HOMEBREW_JMERGE_VERSION}_macOS_amd64.tar.gz"
   sha256 "fa3af298ed062c6e83c0f5ce741129a80c413e561f94c9afc01ee9297b4e065e"
-  license ""
-
-  # depends_on "cmake" => :build
-  depends_on "go" => :build
 
   def install
-    print buildpath
-    ENV["GOPATH"] = buildpath
-    jmerge_path = buildpath/"src/github.com/akubi0w1/jmerge/"
-    jmerge_path.install buildpath.children
-
-    cd jmerge_path do
-      system "go", "mod", "tidy"
-      system "go", "build", "-o", "jmerge-cli/jmerge-cli" "jmerge-cli/main.go"
-      bin.install "jmerge-cli/jmerge-cli"
-    end
+    bin.install "jmerge-cli"
   end
 
   test do
