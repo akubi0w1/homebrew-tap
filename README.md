@@ -3,6 +3,7 @@
 ## Install
 
 `brew install akubi0w1/tap/<fomula>`
+
 Or `brew tap akubi0w1/tap` and then `brew install fomula`
 
 ## Formulas
