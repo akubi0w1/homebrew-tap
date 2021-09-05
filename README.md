@@ -2,8 +2,7 @@
 
 ## Install
 
-`brew install akubi0w1/tap/<fomula>`
-
+`brew install akubi0w1/tap/<fomula>` <br>
 Or `brew tap akubi0w1/tap` and then `brew install fomula`
 
 ## Formulas
